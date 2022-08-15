@@ -68,6 +68,7 @@ export default function AppointmentsList() {
           <table className="widgetLgTable">
             <tr className="widgetLgTr">
               <th className="widgetLgTh">Customer</th>
+              <th className="widgetLgTh">S/N</th>
               <th className="widgetLgTh">Expert</th>
               <th className="widgetLgTh">Duration</th>
               <th className="widgetLgTh">Date</th>
@@ -79,6 +80,7 @@ export default function AppointmentsList() {
             {appointments &&
               appointments.map((data, index) => (
                 <tr className="widgetLgTr" key={index}>
+                  <td className="widgetLgAmount">{index}</td>
                   <td className="widgetLgAmount">{data?.userName}</td>
 
                   <td className="widgetLgAmount">{data?.expertName}</td>
@@ -102,7 +104,7 @@ export default function AppointmentsList() {
                   </td>
                   <td className="widgetLgStatus">
                     {data?.isComplete ? (
-                      <Button disabled={true} type="completed" />
+                      <Button disabled={true} type="confirmed" />
                     ) : (
                       <button
                         onClick={() => verifyAppointment(data)}
