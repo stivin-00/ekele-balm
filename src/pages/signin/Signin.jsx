@@ -8,7 +8,7 @@ import { signin } from "../../actions/userActions";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("ekeleagbakwuru9@gmail.com");
+  const [password, setPassword] = useState("");
 
   // redux
   const history = useHistory();
