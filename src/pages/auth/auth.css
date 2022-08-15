@@ -1,0 +1,48 @@
+.auth-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../../images/login/1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+}
+.auth-page h1{
+    font-size: 5vw;
+    color: #ffffff;
+}
+.auth-page i{
+    font-size: 5vw;
+    color: #ffffff;
+}
+@media only screen and (max-width: 600px) {
+    .auth-page h1{
+        font-size: 7vw;
+        color: #ffffff;
+    }
+  }
+
+  /* .login-register-page-wrapper {
+    background: url('../../images/login/5.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    .login-form-box {
+      box-shadow: 10px 10px 100px 0px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 10px 10px 100px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 10px 10px 100px 0px rgba(0, 0, 0, 0.75);
+      // border: 1px solid #eeeeee;
+      padding: 40px;
+      border-radius: 10px;
+      position: relative;
+      input[type="checkbox"] {
+        width: auto;
+      }
+      .lost-password {
+        color: var(--color-secondary);
+      }
+    }
+  } */

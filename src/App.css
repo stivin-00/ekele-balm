@@ -1,0 +1,72 @@
+.container{
+    display: flex;
+    margin-top: 10px;
+}
+
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+.error{
+  padding: 0.5rem;
+  background-color: #fff0f1;
+  color: #d95087;
+}
+.success{
+  padding: 0.5rem;
+  background-color: #e5faf2;
+  color: #3bb077;
+}
+.loading-bar {
+    padding: 0.5rem;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebf1fe;
+    color: #2a7ade;
+  }
+  .error-bar {
+    padding: 0.5rem;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff0f1;
+    color: #d95087;
+  }
+  .error-table {
+    align-self: center;
+    justify-self: center;
+    padding: 0.2rem;
+    width: 3rem;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff0f1;
+    color: #d95087;
+  }
+  .success-table {
+    align-self: center;
+    justify-self: center;
+    padding: 0.2rem;
+    display: flex;
+    width: 3rem;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5faf2;
+    color: #3bb077;
+  }
+  .success-bar {
+    padding: 0.5rem;
+    width: 3rem;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5faf2;
+    color: #3bb077;
+  }
