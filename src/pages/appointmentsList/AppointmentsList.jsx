@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useHistory, Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./appointmentsList.css";
+import { toast } from "react-toastify";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
+import axios from "axios";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import { listUsers } from "../../actions/userActions";
@@ -16,6 +17,8 @@ export default function AppointmentsList() {
   const history = useHistory();
   const dispatch = useDispatch();
   const appointmentList = useSelector((state) => state.appointmentList);
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
   useEffect(() => {
     dispatch(listAppointments());
   }, []);
@@ -25,6 +28,35 @@ export default function AppointmentsList() {
       setAppointments(appointmentList?.appointments);
     }
   }, [appointmentList]);
+
+  const Button = ({ type }) => {
+    return <button className={"widgetLgButton " + type}>{type}</button>;
+  };
+
+  const verifyAppointment = async (data) => {
+    if (window.confirm("Do you confirm this meeting held?")) {
+      try {
+        const response = await axios.put(
+          `${process.env.REACT_APP_API_KEY}appointments/${data._id}`,
+          data,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
+        console.log("data=>", response);
+        if (response.data.message === "ok") {
+          dispatch(listAppointments());
+        }
+      } catch (error) {
+        console.log("error", error);
+        const message =
+          (await error.response) && error.response.data.message
+            ? error.response.data.message
+            : error.message;
+        toast.error(message);
+      }
+    }
+  };
 
   return (
     <>
@@ -41,7 +73,8 @@ export default function AppointmentsList() {
               <th className="widgetLgTh">Date</th>
               <th className="widgetLgTh">Amount</th>
               <th className="widgetLgTh">Link</th>
-              <th className="widgetLgTh">Status</th>
+              <th className="widgetLgTh">Status of meet</th>
+              <th className="widgetLgTh">confirm it held</th>
             </tr>
             {appointments &&
               appointments.map((data, index) => (
@@ -60,16 +93,23 @@ export default function AppointmentsList() {
                   <td className="widgetLgAmount">{data?.googleMeetLink}</td>
                   <td
                     className="widgetLgStatus"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
                   >
                     {data?.isComplete ? (
                       <span className="success-table">completed</span>
                     ) : (
                       <span className="error-table">pending</span>
+                    )}
+                  </td>
+                  <td className="widgetLgStatus">
+                    {data?.isComplete ? (
+                      <Button disabled={true} type="completed" />
+                    ) : (
+                      <button
+                        onClick={() => verifyAppointment(data)}
+                        type="subit"
+                      >
+                        yes
+                      </button>
                     )}
                   </td>
                 </tr>

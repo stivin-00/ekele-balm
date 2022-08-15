@@ -23,7 +23,7 @@ export const updateExpertProfile = (expert) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.put(
-      ` http://localhost:5000/api/expert/profile`,
+      ` ${process.env.REACT_APP_API_KEY}expert/profile`,
       expert,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -50,7 +50,7 @@ export const updateExpert = (expert) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.put(
-      `http://localhost:5000/api/expert/${expert._id}`,
+      `${process.env.REACT_APP_API_KEY}expert/${expert._id}`,
       expert,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -72,7 +72,7 @@ export const detailsExpert = (expertId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(
-      `http://localhost:5000/api/expert/${expertId}`,
+      `${process.env.REACT_APP_API_KEY}expert/${expertId}`,
       {
         headers: { Authorization: `Bearer ${userInfo?.token}` },
       }
@@ -94,7 +94,7 @@ export const deleteExpert = (expertId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.delete(
-      `http://localhost:5000/api/expert/${expertId}`,
+      `${process.env.REACT_APP_API_KEY}expert/${expertId}`,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }

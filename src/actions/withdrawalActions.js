@@ -66,11 +66,14 @@ export const listWithdrawals = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await Axios.get("http://localhost:5000/api/withdraw/all", {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    });
+    const { data } = await Axios.get(
+      `${process.env.REACT_APP_API_KEY}withdraw/all`,
+      {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      }
+    );
     dispatch({ type: WITHDRAWAL_LIST_SUCCESS, payload: data });
   } catch (error) {
     const message =

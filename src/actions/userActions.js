@@ -32,7 +32,7 @@ export const signin = (email, password) => async (dispatch) => {
   });
   try {
     const { data } = await Axios.post(
-      " http://localhost:5000/api/admin/signin",
+      ` ${process.env.REACT_APP_API_KEY}admin/signin`,
       { email, password }
     );
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
@@ -84,7 +84,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.put(
-      ` http://localhost:5000/api/users/profile`,
+      ` ${process.env.REACT_APP_API_KEY}users/profile`,
       user,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -131,7 +131,7 @@ export const listUsers = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await Axios.get("http://localhost:5000/api/users", {
+    const { data } = await Axios.get(`${process.env.REACT_APP_API_KEY}users`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -152,7 +152,7 @@ export const listExperts = () => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(
-      "http://localhost:5000/api/expert/allexperts",
+      `${process.env.REACT_APP_API_KEY}expert/allexperts`,
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }

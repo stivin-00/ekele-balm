@@ -19,7 +19,7 @@ export default function FeaturedInfo() {
     setLoading(true);
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/admin/infos`,
+        `${process.env.REACT_APP_API_KEY}admin/infos`,
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }

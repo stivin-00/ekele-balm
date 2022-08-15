@@ -66,11 +66,14 @@ export const listAppointments = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await Axios.get("http://localhost:5000/api/appointments", {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    });
+    const { data } = await Axios.get(
+      `${process.env.REACT_APP_API_KEY}appointments`,
+      {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      }
+    );
     dispatch({ type: APPOINTMENT_LIST_SUCCESS, payload: data });
   } catch (error) {
     const message =

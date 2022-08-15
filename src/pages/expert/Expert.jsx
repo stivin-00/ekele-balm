@@ -249,29 +249,38 @@ export default function Product() {
               <form className="userUpdateForm">
                 <div className="userUpdateLeft">
                   <div className="userUpdateItem">
-                    <label>Full Name</label>
+                    <label>Total Earned ($)</label>
                     <input
                       type="text"
                       disabled={true}
-                      placeholder={expert?.name}
+                      placeholder={expert?.account?.total}
                       className="userUpdateInput"
                     />
                   </div>
                   <div className="userUpdateItem">
-                    <label>Email</label>
+                    <label>Pending ($)</label>
                     <input
                       type="text"
                       disabled={true}
-                      placeholder={expert?.email}
+                      placeholder={expert?.account?.pending}
                       className="userUpdateInput"
                     />
                   </div>
                   <div className="userUpdateItem">
-                    <label>Phone</label>
+                    <label>Withdrawn ($)</label>
                     <input
                       type="text"
                       disabled={true}
-                      placeholder={expert?.phone}
+                      placeholder={expert?.account?.withdrawn}
+                      className="userUpdateInput"
+                    />
+                  </div>
+                  <div className="userUpdateItem">
+                    <label>Balance ($)</label>
+                    <input
+                      type="text"
+                      disabled={true}
+                      placeholder={expert?.account?.balance}
                       className="userUpdateInput"
                     />
                   </div>

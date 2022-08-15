@@ -80,11 +80,6 @@ export default function ExpertList() {
                   <td className="widgetLgAmount">{data?.country}</td>
                   <td
                     className="widgetLgAmount"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
                   >
                     {data.isVerified ? (
                       <span className="success-table">Verified</span>

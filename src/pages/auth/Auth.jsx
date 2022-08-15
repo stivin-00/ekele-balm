@@ -17,7 +17,7 @@ const Auth = () => {
       const email = userObject.email;
       try {
         const response = await axios.post(
-          `http://localhost:5000/api/admin/register`,
+          `${process.env.REACT_APP_API_KEY}admin/register`,
           { name, email }
         );
         console.log("res=>", response);

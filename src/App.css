@@ -9,12 +9,16 @@
     color: inherit;
 }
 .error{
-  padding: 0.5rem;
+  padding: 5px 7px;
+  border: none;
+  border-radius: 10px;
   background-color: #fff0f1;
   color: #d95087;
 }
 .success{
-  padding: 0.5rem;
+  padding: 5px 7px;
+  border: none;
+  border-radius: 10px;
   background-color: #e5faf2;
   color: #3bb077;
 }
@@ -37,26 +41,16 @@
     color: #d95087;
   }
   .error-table {
-    align-self: center;
-    justify-self: center;
-    padding: 0.2rem;
-    width: 3rem;
-    display: flex;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
+    padding: 5px 7px;
+    border: none;
+    border-radius: 10px;
     background-color: #fff0f1;
     color: #d95087;
   }
   .success-table {
-    align-self: center;
-    justify-self: center;
-    padding: 0.2rem;
-    display: flex;
-    width: 3rem;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
+    padding: 5px 7px;
+    border: none;
+    border-radius: 10px;
     background-color: #e5faf2;
     color: #3bb077;
   }

@@ -36,24 +36,26 @@ export default function WithdrawList() {
 
   const payExpert = async (data) => {
     console.log("pay data=>", data);
-    try {
-      const response = await axios.put(
-        `http://localhost:5000/api/expert/pay`,
-         data ,
-        {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
+    if (window.confirm("Do you confirm you paid the requested amount?")) {
+      try {
+        const response = await axios.put(
+          `${process.env.REACT_APP_API_KEY}expert/pay`,
+          data,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
+        console.log("data=>", response);
+        if (response.data.message === "ok") {
+          dispatch(listWithdrawals());
         }
-      );
-      console.log("data=>", response);
-      if (response.data.message === "ok") {
-        dispatch(listWithdrawals());
+      } catch (error) {
+        console.log("error", error);
+        const message =
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message;
       }
-    } catch (error) {
-      console.log("error", error);
-      const message =
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message;
     }
   };
 
@@ -101,11 +103,6 @@ export default function WithdrawList() {
                   </td>
                   <td
                     className="widgetLgAmount"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
                   >
                     {data.isPaid ? (
                       <span className="success-table">Yes</span>
