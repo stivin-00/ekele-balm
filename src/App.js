@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import { ToastContainer } from "react-toastify";
+import PrivateRoute from "./components/PrivateRoute";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Home from "./pages/home/Home";
@@ -33,48 +34,51 @@ function App() {
         pauseOnHover
       />
       <Switch>
-        <Route exact path="/">
-          <Auth />
-        </Route>
+        <Route exact path="/" component={Auth}></Route>
         <Route
           exact
           path="/auth/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0ZTA2ZTQyZDU1OGJkNzg5NWI4NDEiLCJuYW1lIjoiQmFsbSBBSSIsImVtYWlsIjoiYmFsbXRlY2hub2xvZ2llc0BnbWFpbC5jb20iLCJpc0V4cGVydCI6ZmFsc2UsImlhdCI6MTY2MDIyMTAyMiwiZXhwIjoxNjg2MTQxMDIyfQ.DCgm_0eTyhUjoaWYZVOdNgbXOhQ-1eabA7kBlGrypvs/:emailId"
-        >
-          <Signin />
-        </Route>
-        <Route exact path="/home">
+          component={Signin}
+        ></Route>
+        <PrivateRoute exact path="/home">
           <Home />
-        </Route>
-        <Route path="/users">
-          <UserList />
-        </Route>
-        <Route path="/user/:userId">
-          <User />
-        </Route>
-        <Route path="/appointments">
-          <AppointmentsList />
-        </Route>
-        <Route path="/appointments/:appointmentId">
-          <User />
-        </Route>
-        <Route path="/newUser">
-          <NewUser />
-        </Route>
-        <Route path="/experts">
-          <ExpertList />
-        </Route>
-        <Route path="/expert/:expertId">
-          <Expert />
-        </Route>
-        <Route path="/withdrawals/:withdrawalId">
-          <Expert />
-        </Route>
-        <Route path="/withdrawals">
-          <WithdrawList />
-        </Route>
-        <Route path="/newexpert">
-          <NewProduct />
-        </Route>
+        </PrivateRoute>
+        <PrivateRoute path="/users" exact component={UserList}></PrivateRoute>
+        <PrivateRoute
+          path="/user/:userId"
+          exact
+          component={User}
+        ></PrivateRoute>
+        <PrivateRoute
+          path="/appointments"
+          exact
+          component={AppointmentsList}
+        ></PrivateRoute>
+        <PrivateRoute
+          path="/experts"
+          exact
+          component={ExpertList}
+        ></PrivateRoute>
+        <PrivateRoute
+          path="/expert/:expertId"
+          exact
+          component={Expert}
+        ></PrivateRoute>
+        <PrivateRoute
+          path="/withdrawals/:withdrawalId"
+          exact
+          component={Expert}
+        ></PrivateRoute>
+        <PrivateRoute
+          path="/withdrawals"
+          exact
+          component={WithdrawList}
+        ></PrivateRoute>
+        <PrivateRoute
+          path="/newexpert"
+          exact
+          component={NewProduct}
+        ></PrivateRoute>
       </Switch>
       {/* </div> */}
     </Router>
