@@ -26,7 +26,7 @@ export default function Topbar() {
             <Settings />
           </div>
           <img
-            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            src="https://res.cloudinary.com/balmai/image/upload/v1654867414/balm-web/dollar-gill-XhL9yTaomaI-unsplash_hn4dtx_pozngn.jpg"
             alt=""
             className="topAvatar"
           />
