@@ -26,8 +26,8 @@ import {
 
 const initialState = {
   userSignin: {
-    userInfo: localStorage.getItem("userInfo")
-      ? JSON.parse(localStorage.getItem("userInfo"))
+    userInfo: sessionStorage.getItem("userInfo")
+      ? JSON.parse(sessionStorage.getItem("userInfo"))
       : null,
   },
   addMeetingDetails: {

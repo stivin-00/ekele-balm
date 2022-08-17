@@ -72,7 +72,7 @@ export const detailsExpert = (expertId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(
-      `${process.env.REACT_APP_API_KEY}expert/${expertId}`,
+      `${process.env.REACT_APP_API_KEY}expert/admin/${expertId}`,
       {
         headers: { Authorization: `Bearer ${userInfo?.token}` },
       }

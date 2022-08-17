@@ -37,7 +37,7 @@ export const signin = (email, password) => async (dispatch) => {
     );
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     console.log("singin data==>", data);
-    localStorage.setItem("userInfo", JSON.stringify(data));
+    sessionStorage.setItem("userInfo", JSON.stringify(data));
     // toast.success("✅ signed in successfully! 😊");
     window.location = `/home`;
   } catch (error) {
@@ -52,7 +52,7 @@ export const signin = (email, password) => async (dispatch) => {
 };
 
 export const signout = () => (dispatch) => {
-  localStorage.removeItem("userInfo");
+  sessionStorage.removeItem("userInfo");
   dispatch({ type: USER_SIGNOUT });
 };
 export const detailsUser = (userId) => async (dispatch, getState) => {
