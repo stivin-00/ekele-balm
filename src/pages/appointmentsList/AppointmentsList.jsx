@@ -25,6 +25,7 @@ export default function AppointmentsList() {
 
   useEffect(() => {
     if (appointmentList.appointments) {
+      console.log(appointmentList?.appointments);
       setAppointments(appointmentList?.appointments);
     }
   }, [appointmentList]);
@@ -67,20 +68,21 @@ export default function AppointmentsList() {
           <span className="widgetSmTitle">Appointments</span>
           <table className="widgetLgTable">
             <tr className="widgetLgTr">
-              <th className="widgetLgTh">Customer</th>
               <th className="widgetLgTh">S/N</th>
+              <th className="widgetLgTh">Customer</th>
               <th className="widgetLgTh">Expert</th>
               <th className="widgetLgTh">Duration</th>
               <th className="widgetLgTh">Date</th>
               <th className="widgetLgTh">Amount</th>
               <th className="widgetLgTh">Link</th>
+              <th className="widgetLgTh">conferenceId</th>
               <th className="widgetLgTh">Status of meet</th>
               <th className="widgetLgTh">confirm it held</th>
             </tr>
             {appointments &&
               appointments.map((data, index) => (
                 <tr className="widgetLgTr" key={index}>
-                  <td className="widgetLgAmount">{index}</td>
+                  <td className="widgetLgAmount">{index + 1}</td>
                   <td className="widgetLgAmount">{data?.userName}</td>
 
                   <td className="widgetLgAmount">{data?.expertName}</td>
@@ -93,9 +95,8 @@ export default function AppointmentsList() {
                   </td>
                   <td className="widgetLgAmount">${data?.amount}</td>
                   <td className="widgetLgAmount">{data?.googleMeetLink}</td>
-                  <td
-                    className="widgetLgStatus"
-                  >
+                  <td className="widgetLgAmount">{data?.conferenceId}</td>
+                  <td className="widgetLgStatus">
                     {data?.isComplete ? (
                       <span className="success-table">completed</span>
                     ) : (

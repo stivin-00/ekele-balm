@@ -50,7 +50,7 @@ export default function ExpertList() {
             {experts &&
               experts?.map((data, index) => (
                 <tr className="widgetLgTr" key={index}>
-                  <td className="widgetLgAmount">{index}</td>
+                  <td className="widgetLgAmount">{index + 1}</td>
                   <td className="widgetLgUser">
                     <span className="widgetLgName">
                       <li className="widgetSmListItem" key={index}>
